@@ -30,7 +30,7 @@ class StoreUserRequest extends FormRequest
             'email'=>'required|email|unique:users,email',
             'password'=>'required|confirmed',
             'image'=>'image',
-            'permissions'=>'required',
+            'permissions'=>'required'
         ];
     }
 }
