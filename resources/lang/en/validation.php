@@ -179,14 +179,17 @@ return [
         'size'                  => 'the size',
         'image'                 => 'the image',
         'permissions'           =>'permissions',
+        'category_id'           =>' category name',
         'ar'=>
         [
             'name'=>'the name in arabic',
+            'description'=>' description in arabic'
         ],
     
         'en'=>
         [
             'name'=>'the name in english ',
+            'description'=>' description in english'
         ],
     ],
 

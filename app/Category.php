@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use Astrotomic\Translatable\Translatable;
+use App\Product;
 
 class Category extends Model
 {
@@ -13,6 +14,12 @@ class Category extends Model
 
     public $translatedAttributes = ['name'];
     
+///realtions 1======>m
+            //product=======> category
 
+    public function product()
+    {
+        return $this->hasMany('App\Product','category_id');
+    }
 
 }//end model category

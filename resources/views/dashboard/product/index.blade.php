@@ -19,12 +19,20 @@
 
 <div class="box box-primary">
 <div class="box-header with-border">
-<h4 class="box-title" style="margin-bottom:15px;">{{__('site.products')}}<small>{{$cproducts->total()}}</small></h4>
+<h4 class="box-title" style="margin-bottom:15px;">{{__('site.products')}}<small>{{$products->total()}}</small></h4>
 
-<form method="get" action="{{route('categories.index')}}">
+<form method="get" action="{{route('products.index')}}">
 <div class="row">
 <div class="col-md-4">
 <input type ="text" name="search" class="form-control" placeholder="{{__('site.search')}}" value="{{request()->search}}">
+</div>
+<div class="col-md-4">
+<select name="category_id" class="form-control">
+    <option>{{__('site.all_categories')}}</option>
+@foreach($categories as $category)
+    <option value="{{$category->id}}" {{request()->category_id == $category->id ?'selected' : ''}}>{{$category->name}}</option>
+    @endforeach
+</select>
 </div>
 <div class="col-md-4">
     <button type="submit" class="btn btn-primary" value=><i class="fa fa-search"></i>{{__('site.search')}}</button>
@@ -49,10 +57,12 @@
 <th>#</th>
 <th>{{__('site.product_name')}}</th>
 <th>{{__('site.product_description')}}</th>
-<th>{{__('site.product_image)}}</th>
-<th>{{__('site.product_purchase_price)}}</th>
-<th>{{__('site.sale_price)}}</th>
-<th>{{__('site.stock)}}</th>
+<th>{{__('site.category_name')}}</th>
+<th>{{__('site.product_image')}}</th>
+<th>{{__('site.purchase_price')}}</th>
+<th>{{__('site.sale_price')}}</th>
+<th>{{__('site.profit_percentage')}} %</th>
+<th>{{__('site.stock')}}</th>
 <th>{{__('site.action')}}</th>
 </tr>
 </thead>
@@ -61,10 +71,12 @@
 <tr>
 <td>{{$index+1}}</td>
 <td>{{$product->name}}</td>
-<td>{{$product->description}}</td>
-<td><img src="{{}}" class="img-thumbnail" style="height:100px; width:100px" ></td>
+<td>{!!$product->description!!}</td>
+<td>{{$product->category->name}}</td>
+<td><img src="{{asset('uploads/products_image/'.$product->image)}}"  class="img-thumbnail" style="height:100px; width:100px" ></td>
 <td>{{$product->purchase_price}}</td>
 <td>{{$product->sale_price}}</td>
+<td>{{$product->profit_percentage}} %</td>
 <td>{{$product->stock}}</td>
 <td>
 @if(auth()->user()->hasPermission('update_categories'))
