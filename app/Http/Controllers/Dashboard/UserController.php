@@ -101,7 +101,7 @@ class UserController extends Controller
         $request->validate([
             'first_name'=>'required',
             'last_name'=>'required',
-            'image'=>'image',
+            //'image'=>'image',
             'email'=>'required|email|unique:users,email,'.$user->id,
             'permissions'=>'required',
         ]);

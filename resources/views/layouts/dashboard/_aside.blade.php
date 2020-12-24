@@ -18,7 +18,10 @@
            @if(auth()->user()->hasPermission('read_users'))
                 <li><a href="{{route('users.index')}}"><i class="fa fa-th"></i><span>{{__('site.users')}}</span></a></li>
               @endif
-
+              
+           @if(auth()->user()->hasPermission('read_categories'))
+            <li><a href="{{route('categories.index')}}"><i class="fa fa-th"></i><span>{{__('site.categories')}}</span></a></li>
+            @endif
                 
             
 

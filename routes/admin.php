@@ -6,9 +6,12 @@ Route::group(['prefix'=>'dashboard','namespace'=>'Dashboard','middleware'=>'auth
 {
 
   route::get('/index','DashboardController@index')->name('dashboard.index');
-////users route////
 
+////users route////
 route::resource('users','UserController')->except(['show']);
+
+//categories route
+route::resource('categories','CategoryController')->except(['show']);
    
 });
 });
