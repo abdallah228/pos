@@ -37,8 +37,19 @@ return [
 
 
     'categories'=>'categories',
-    'products'=>'products',
     'category_name'=>'category name',
+    'all_categories'=>'all categories',
+
+    'products'=>'products',
+    'product_name'=>'product name',
+    'product_description'=>'product description',
+    'purchase_price'=>'purchase price',
+    'sale_price'=>'sale price',
+    'stock'=>'stock',
+    'product_image'=>'product image',
+    'profit_percentage' =>'profit',
+    'product_count'=>'عدد المنتجات',
+    'related_product'=>'المنتجات المرتبطه',
     
 
 
@@ -47,11 +58,17 @@ return [
      'ar'=>
      [
          'category_name'=>'the name in arabic',
+         'ar.name'=>' the name is require',
+         'product_name'=>'product name in arabic',
+         'product_description'=>'description name in arabic',
      ],
  
      'en'=>
      [
-         'category_name'=>'the name in english',
+        'category_name'=>'the name in english',
+        'en.name'=>'the name is require',
+        'product_name'=>'product name in english',
+        'product_description'=>'description name in english',
      ],
 
 ];

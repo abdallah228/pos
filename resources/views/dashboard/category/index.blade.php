@@ -26,6 +26,7 @@
 <div class="col-md-4">
 <input type ="text" name="search" class="form-control" placeholder="{{__('site.search')}}" value="{{request()->search}}">
 </div>
+
 <div class="col-md-4">
     <button type="submit" class="btn btn-primary" value=><i class="fa fa-search"></i>{{__('site.search')}}</button>
     @if(auth()->user()->hasPermission('create_categories'))
@@ -48,6 +49,8 @@
 <tr>
 <th>#</th>
 <th>{{__('site.category_name')}}</th>
+<th>{{__('site.product_count')}}</th>
+<th>{{__('site.related_product')}}</th>
 <th>{{__('site.action')}}</th>
 </tr>
 </thead>
@@ -56,6 +59,8 @@
 <tr>
 <td>{{$index+1}}</td>
 <td>{{$category->name}}</td>
+<td>{{$category->product->count()}}</td>
+<td><a class="btn btn-info btn-sm" href="{{route('products.index',['category_id'=>$category->id])}}">{{__('site.related_product')}}</a></td>
 <td>
 @if(auth()->user()->hasPermission('update_categories'))
 <a href="{{route('categories.edit',$category->id)}}" class="btn btn-info btn-sm"><i class="fa fa-edit"></i> {{__('site.edit')}}</a>

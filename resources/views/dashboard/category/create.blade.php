@@ -9,7 +9,7 @@
 </h1>
 <ol class="breadcrumb">
 <li><a href="{{route('dashboard.index')}}"><i class="fa fa-dashboard"></i>{{__('site.dashboard')}}</a></li>
-<li><a href="{{route('categories.index')}}"></i>{{__('site.category_name')}}</a></li>
+<li><a href="{{route('categories.index')}}"></i>{{__('site.categories')}}</a></li>
 <li class="active "></i>{{__('site.add')}}</li></ol>
 </sectin>
 

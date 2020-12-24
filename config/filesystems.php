@@ -60,6 +60,11 @@ return [
             'root' => public_path('uploads/users_image'),
            
         ],
+        'public_uploads_products' => [
+            'driver' => 'local',
+            'root' => public_path('uploads/products_image'),
+           
+        ],
 
         's3' => [
             'driver' => 's3',

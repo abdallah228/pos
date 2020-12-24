@@ -12,6 +12,9 @@ route::resource('users','UserController')->except(['show']);
 
 //categories route
 route::resource('categories','CategoryController')->except(['show']);
+
+//products route
+route::resource('products','ProductController')->except(['show']);
    
 });
 });

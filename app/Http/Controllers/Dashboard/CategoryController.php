@@ -14,7 +14,7 @@ class CategoryController extends Controller
     {
         //
         $categories =Category::when($request->search , function($q) use($request) {
-            return $q->where('name','like','%'. $request->search.'%');
+            return $q->whereTranslationLike('name', '%'.$request->search.'%');
         })->latest()->paginate(5);
         return view('dashboard.category.index',compact('categories'));
     }
@@ -74,6 +74,8 @@ class CategoryController extends Controller
     public function destroy(Category $category)
     {
         //
+        
+        $category->product()->delete();
         $category->delete();
         return redirect()->route('categories.index')->with(["success"=>__('site.delete_succes')]);
 
