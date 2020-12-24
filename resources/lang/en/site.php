@@ -38,7 +38,20 @@ return [
 
     'categories'=>'categories',
     'products'=>'products',
+    'category_name'=>'category name',
     
 
+
+     //multi lang
+
+     'ar'=>
+     [
+         'category_name'=>'the name in arabic',
+     ],
+ 
+     'en'=>
+     [
+         'category_name'=>'the name in english',
+     ],
 
 ];

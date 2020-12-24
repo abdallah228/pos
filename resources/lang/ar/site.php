@@ -41,9 +41,24 @@ return [
 
     'categories'=>'الاقسام',
     'products'=>'المنتجات',
+    'category_name'=>'اسم القسم',
 
 
 
+
+    //multi lang
+
+    'ar'=>
+    [
+        'category_name'=>'الاسم باللغه العربيه',
+        'ar.name'=>' الاسم مطلوب',
+    ],
+
+    'en'=>
+    [
+        'category_name'=>'الاسم باللغه الانجليزيه',
+        'en.name'=>'الاسم مطلوب',
+    ],
 
 
 ];

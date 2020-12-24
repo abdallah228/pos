@@ -59,7 +59,7 @@
 
 <div class="form-group">
 <label>{{__('site.image')}}</label>
-<input type="file" name="image" class="form-control image" >
+<input type="file" name="image" class="form-control image"  >
 @if ($errors->has('image'))
 <span class="invalid-feedback" role="alert">
 <strong>{{ $errors->first('image') }}</strong>
@@ -113,8 +113,9 @@
     </div>
     @endforeach
      </div><!-- end tab content-->
-     </div> <!--end vav tabs--> 
 
+     
+     </div> <!--end vav tabs--> 
 @if ($errors->has('permissions'))
 <span class="invalid-feedback" role="alert">
 <strong>{{ $errors->first('permissions') }}</strong>
