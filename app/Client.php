@@ -1,0 +1,22 @@
+<?php
+
+namespace App;
+
+use Illuminate\Database\Eloquent\Model;
+
+class Client extends Model
+{
+   
+    //
+    protected $guarded = [];
+
+
+  //casting
+
+
+protected $casts = [
+    'mobile' => 'array',
+];
+
+   
+}

@@ -56,6 +56,13 @@ return [
 
 
 
+    'clients'=>'العملاء',
+    'clients_name'=>'اسم العميل',
+    'clients_mobile'=>'رقم الهاتف',
+    'clients_address'=>'العنـــوان',
+
+
+
 
 
 
