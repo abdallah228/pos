@@ -50,6 +50,15 @@ return [
     'profit_percentage' =>'profit',
     'product_count'=>'عدد المنتجات',
     'related_product'=>'المنتجات المرتبطه',
+
+
+
+
+
+
+
+
+    'clients'=>'clients',
     
 
 
