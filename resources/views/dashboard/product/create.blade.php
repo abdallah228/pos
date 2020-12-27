@@ -88,7 +88,7 @@
 
 <div class="form-group">
 <label>{{__('site.purchase_price')}}</label>
-<input type="number" name="purchase_price" class="form-control"  >
+<input type="number" step="0.01" name="purchase_price" class="form-control" value="{{old('purchase_price')}}" >
 @if ($errors->has('purchase_price'))
 <span class="invalid-feedback btn-danger" role="alert">
 <strong>{{ $errors->first('purchase_price') }}</strong>
@@ -98,7 +98,7 @@
 
 <div class="form-group">
 <label>{{__('site.sale_price')}}</label>
-<input type="number" name="sale_price" class="form-control" >
+<input type="number" step="0.01" name="sale_price" class="form-control" value="{{old('sale_price')}}">
 @if ($errors->has('sale_price'))
 <span class="invalid-feedback btn-danger" role="alert">
 <strong>{{ $errors->first('sale_price') }}</strong>
@@ -108,7 +108,7 @@
 
 <div class="form-group">
 <label>{{__('site.stock')}}</label>
-<input type="number" name="stock" class="form-control" >
+<input type="number" name="stock" class="form-control"  value="{{old('stock')}}">
 @if ($errors->has('stock'))
 <span class="invalid-feedback btn-danger" role="alert">
 <strong>{{ $errors->first('stock') }}</strong>

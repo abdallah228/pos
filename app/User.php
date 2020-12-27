@@ -47,4 +47,8 @@ class User extends Authenticatable
     {
         return ucfirst($value);
     }//end last name a=>A
+
+
+
+
 }

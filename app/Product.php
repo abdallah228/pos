@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 use Astrotomic\Translatable\Translatable;
 
 use App\Category;
+use App\Product;
 
 class Product extends Model
 {
@@ -29,5 +30,12 @@ class Product extends Model
         $profit = $this->sale_price - $this->purchase_price;
        $profit_percentage = $profit * 100 / $this->purchase_price;
        return number_format($profit_percentage,2);
+    }
+
+    
+    ///m====>m order=====>product
+    public function orders()
+    {
+        return $this->belongsToMany('App\Product','product_order','product_id','order_id');
     }
 }
