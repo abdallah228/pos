@@ -51,6 +51,7 @@
 <th>{{__('site.clients_name')}}</th>
 <th>{{__('site.clients_mobile')}}</th>
 <th>{{__('site.clients_address')}}</th>
+<th>{{__('site.orders')}}</th>
 <th>{{__('site.action')}}</th>
 </tr>
 </thead>
@@ -59,9 +60,17 @@
 <tr>
 <td>{{$index+1}}</td>
 <td>{{$client->name}}</td>
-<td>{{ implode($client ->mobile,'-') }}</td>
+<td>{{ is_array($client->mobile) ? implode($client ->mobile,'-') : $client->mobile }}</td>
 <td>{{$client->address}}</td>
+<td>
+@if(auth()->user()->hasPermission('create_orders'))
+<a href="{{route('clients.orders.create',$client->id)}}" class="btn btn-primary btn-sm">{{__('site.add_order')}}</a>
+@else
+<a href="" class="btn btn-primary btn-sm disabled">{{__('site.add_order')}}</a>
 
+@endif
+
+</td>
 <td>
 @if(auth()->user()->hasPermission('update_clients'))
 <a href="{{route('clients.edit',$client->id)}}" class="btn btn-info btn-sm"><i class="fa fa-edit"></i> {{__('site.edit')}}</a>

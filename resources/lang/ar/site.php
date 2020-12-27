@@ -4,13 +4,13 @@ return [
     'no_data_found'=>'للاسف لا يوجد اى سجلات',
 
 
-
+    //dashboard
     'dashboard'=>'الرئيسيه',
     'users'=>'المشرفيين',
     'permessions'=>'الصلاحيات',
 
 
-
+    //users
     'first_name'=>'الاسم الاول',
     'last_name'=>'الاسم الاخير',
     'email'=>'البريد الالكترونى',
@@ -18,7 +18,7 @@ return [
     'password_confirmation'=>'تاكيد كلمه السر',
     'image'=>'صوره',
 
-
+    //settings
     'action'=>'الاجراءات',
     'edit'=>'تعديل',
     'delete'=>'حذف',
@@ -33,16 +33,17 @@ return [
     'permissions'=>'الصلاحيات',
 
 
-
+    //sessions
     'added_success'=>'تم اضافه البيانات بنجاح',
     'update_success'=>'تم تحديث البيانات بنجاح',
     'delete_succes'=>'تم حذف البيانات بنجاح',
 
-
+    //categories
     'categories'=>'الاقسام',
     'category_name'=>'اسم القسم',
     'all_categories'=>'كل الاقسام',
 
+    //products
     'products'=>'المنتجات',
     'product_name'=>'اسم المنتج',
     'product_description'=>'وصف المنتج',
@@ -53,13 +54,21 @@ return [
     'profit_percentage' =>'المكسب',
     'product_count'=>'عدد المنتجات',
     'related_product'=>'المنتجات المرتبطه',
+    'quantity'=>'الكميه',
+    'total'=>'الاجمالى',
 
 
-
+    //clients
     'clients'=>'العملاء',
     'clients_name'=>'اسم العميل',
     'clients_mobile'=>'رقم الهاتف',
     'clients_address'=>'العنـــوان',
+
+
+
+    //orders
+    'orders'=>'الطلبات',
+    'add_order'=>'اضف طلب',
 
 
 

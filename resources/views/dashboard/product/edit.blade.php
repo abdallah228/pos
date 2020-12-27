@@ -88,7 +88,7 @@
 
 <div class="form-group">
 <label>{{__('site.purchase_price')}}</label>
-<input type="number" name="purchase_price" class="form-control" value="{{$product->purchase_price}}"  >
+<input type="number"  name="purchase_price" step="0.01" class="form-control" value="{{$product->purchase_price}}"  >
 @if ($errors->has('purchase_price'))
 <span class="invalid-feedback btn-danger" role="alert">
 <strong>{{ $errors->first('purchase_price') }}</strong>
@@ -98,7 +98,7 @@
 
 <div class="form-group">
 <label>{{__('site.sale_price')}}</label>
-<input type="number" name="sale_price" class="form-control" value="{{$product->sale_price}}" >
+<input type="number" name="sale_price" step="0.01" class="form-control" value="{{$product->sale_price}}" >
 @if ($errors->has('sale_price'))
 <span class="invalid-feedback btn-danger" role="alert">
 <strong>{{ $errors->first('sale_price') }}</strong>

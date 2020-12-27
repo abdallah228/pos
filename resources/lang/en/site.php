@@ -2,10 +2,14 @@
 
 return [
     'no_data_found'=>'Sorry No Data Found',
+
+    //dashboard
     'dashboard'=>'Home',
     'users'=>'moderators',
     'permessions'=>'Permessions',
 
+
+    //users
     'first_name'=>'First Name',
     'last_name'=>'Last Name',
     'email'=>'Email',
@@ -13,7 +17,7 @@ return [
     'password_confirmation'=>'confirm password',
     'image'=>'photo',
 
-
+    //settings
     'action'=>'Action',
     'edit'=>'Edit',
     'delete'=>'Delete',
@@ -28,18 +32,20 @@ return [
     'permissions'=>'permissions',
 
 
-
+    //sessions
     'added_success'=>'data added succesfully',
     'update_success'=>'data updated succesfully',
     'delete_succes'=>'data deleted succesfully',
 
 
 
-
+    //categories
     'categories'=>'categories',
     'category_name'=>'category name',
     'all_categories'=>'all categories',
 
+
+    //products
     'products'=>'products',
     'product_name'=>'product name',
     'product_description'=>'product description',
@@ -48,17 +54,23 @@ return [
     'stock'=>'stock',
     'product_image'=>'product image',
     'profit_percentage' =>'profit',
-    'product_count'=>'عدد المنتجات',
-    'related_product'=>'المنتجات المرتبطه',
+    'product_count'=>'number of products',
+    'related_product'=>'related products',
+    'quantity'=>'quantity',
+    'total'=>'total',
 
 
 
-
-
-
-
-
+//client
     'clients'=>'clients',
+    'clients_name'=>'client name',
+    'clients_mobile'=>'the phone number',
+    'clients_address'=>'address',
+
+     //orders
+     'orders'=>'orders',
+     'add_order'=>'add order',
+ 
     
 
 
