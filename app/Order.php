@@ -22,7 +22,7 @@ class Order extends Model
     ///m====>m order=====>product
     public function products()
     {
-        return $this->belongsToMany('App\Product','product_order','product_id','order_id');
+        return $this->belongsToMany('App\Product','product_order');
     }
     
 }
