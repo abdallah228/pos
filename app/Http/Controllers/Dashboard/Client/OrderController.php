@@ -25,8 +25,9 @@ class OrderController extends Controller
     {
        // dd($request->all());
        $request->validate([
-        'quantity'=>'required|array',
         'products_ids'=>'required|array',
+        'quantity'=>'required|array',
+
 
        ]);
      
@@ -39,17 +40,21 @@ class OrderController extends Controller
        foreach($request->products_ids as $index=>$product_id)//products_ids is the name of field in order.js
        {
         $product =Product::findOrFail($product_id);
-        $total_price += $product->sale_price; 
+        //$total_price += $product->sale_price;
+        $total_price += $product->sale_price * $request->quantity[$index];
+
+ 
 
            $order->products()->attach($product_id,['quantity'=>$request->quantity[$index]]);
            $product->update([
             'stock'=>$product->stock - $request->quantity[$index],
 
            ]);
+           }//endforeach
            $order->update([
             'total_price'=>$total_price,
            ]);
-       }
+       
 
     }
     public function edit(Client $client , Order $order)
