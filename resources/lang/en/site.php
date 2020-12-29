@@ -78,6 +78,7 @@ return [
      'add_order'=>'add order',
      'show'=>'show',
      'edit_order'=>'edit rhe order',
+     'previous_orders'=>'previous orders',
  
     
 

@@ -12,15 +12,12 @@ use App\Product;
 class OrderController extends Controller
 {
     //
-    public function index(Request $request)
-    {
-
-
-    }//end index function 
+ 
     public function create(Client $client)
     {
         $categories = Category::with('product')->get();
-        return view('dashboard.client.order.create',compact('client','categories'));
+        $orders = $client->orders()->with('products')->paginate(5);
+        return view('dashboard.client.order.create',compact('client','categories','orders'));
     }
     public function store(Request $request , Client $client)
     {
@@ -40,7 +37,9 @@ class OrderController extends Controller
     public function edit(Client $client , Order $order)
     {
             $categories = Category::with('product')->get();
-            return view('dashboard.client.order.edit',compact('client','order','categories'));
+            $orders = $client->orders()->with('products')->paginate(5);
+
+            return view('dashboard.client.order.edit',compact('client','order','categories','orders'));
     }
     public function update(Request $request , Client $client ,Order $order)
     {
@@ -52,14 +51,9 @@ class OrderController extends Controller
         $this->detach_order($order);//delete last order
         $this->attach_order($request , $client); // save new order
         //dd($request->all());
-        return redirect()->route('orders.index')->with(['success'=>__('site.update_success')]);
-
-        
-    }
-    public function destroy(Client $client , Order $order)
-    {
-
-    }
+        return redirect()->route('orders.index')->with(['success'=>__('site.update_success')]);      
+    }//end function
+  
 
 
 
@@ -74,11 +68,8 @@ class OrderController extends Controller
             foreach($request->products_ids as $index=>$product_id)//products_ids is the name of field in order.js
             {
              $product =Product::findOrFail($product_id);
-             //$total_price += $product->sale_price;
-             $total_price += $product->sale_price * $request->quantity[$index];
-     
+             $total_price += $product->sale_price * $request->quantity[$index];     
       
-     
                 $order->products()->attach($product_id,['quantity'=>$request->quantity[$index]]);
                 $product->update([
                  'stock'=>$product->stock - $request->quantity[$index],

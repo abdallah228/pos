@@ -77,6 +77,7 @@ return [
     'add_order'=>'اضف طلب',
     'show'=>'عرض',
     'edit_order'=>'تعديل الطلب',
+    'previous_orders'=>'الطلبات السابقه',
 
 
 

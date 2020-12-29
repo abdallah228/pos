@@ -7,9 +7,9 @@ $(document).ready(function(){
         var id = $(this).data('id');
         var sale_price = $.number($(this).data('price'),2);
     
-        $(this).removeClass('btn-success').addClass('btn-default disabled');
+        $(this).removeClass('btn-success').addClass('btn-default disabled');//remove class and replace it
 
-        
+        //add create order
         var html =
             `<tr>
                 <td><input type="hidden" value="${id}" name="products_ids[]"></td>
@@ -78,6 +78,12 @@ $('#loading').css('display','flex');
     });
 });//end order-products
 
+
+
+//print order
+$(document).on('click','.print-btn',function(){
+$('#print-area').printThis();
+});
 
 });
 
