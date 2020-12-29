@@ -2,6 +2,7 @@
 
 return [
     'no_data_found'=>'Sorry No Data Found',
+    'logout'=>'Logout',
 
     //dashboard
     'dashboard'=>'Home',
@@ -51,6 +52,7 @@ return [
     'product_description'=>'product description',
     'purchase_price'=>'purchase price',
     'sale_price'=>'sale price',
+    'sale_product'=>'product sale',
     'stock'=>'stock',
     'product_image'=>'product image',
     'profit_percentage' =>'profit',
@@ -58,6 +60,10 @@ return [
     'related_product'=>'related products',
     'quantity'=>'quantity',
     'total'=>'total',
+    'show_products'=>'show products',
+    'created_at'=>'created at',
+    'print'=>'print',
+    'loading'=>'Loading',
 
 
 
@@ -70,6 +76,8 @@ return [
      //orders
      'orders'=>'orders',
      'add_order'=>'add order',
+     'show'=>'show',
+     'edit_order'=>'edit rhe order',
  
     
 

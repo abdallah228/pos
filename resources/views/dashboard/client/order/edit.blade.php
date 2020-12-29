@@ -1,83 +1,172 @@
 @extends('layouts.dashboard.app')
+
 @section('content')
 
+    <div class="content-wrapper">
 
-<div class="content-wrapper">
-<section class="content-header">
-<h1>
-    {{__('site.clients')}}
-</h1>
-<ol class="breadcrumb">
-<li><a href="{{route('dashboard.index')}}"><i class="fa fa-dashboard"></i>{{__('site.dashboard')}}</a></li>
-<li><a href="{{route('clients.index')}}"></i>{{__('site.clients')}}</a></li>
-<li class="active "></i>{{__('site.edit')}}</li></ol>
-</sectin>
+        <section class="content-header">
 
-<section class="content">
+            <h1>@lang('site.edit_order')</h1>
 
+            <ol class="breadcrumb">
+                <li><a href="{{ route('dashboard.index') }}"><i class="fa fa-dashboard"></i> @lang('site.dashboard')</a></li>
+                <li><a href="{{ route('clients.index') }}">@lang('site.clients')</a></li>
+                <li class="active">@lang('site.edit_order')</li>
+            </ol>
+        </section>
 
-<div class="box box-primary">
-<div class="box box-header">
+        <section class="content">
 
-<h3 class="cox-title">{{__('site.edit')}}</h3>
+            <div class="row">
 
-</div><!--end of box header-->
+                <div class="col-md-6">
 
-<div class="box-body">
-<form action="{{route('clients.update',$client->id)}}" method="post">
-@csrf
-@method('put')
+                    <div class="box box-primary">
 
-<div class="form-group">
-<label>{{__('site.clients_name')}}</label>
-<input type="text" name="name" class="form-control" value="{{$client->name}}" placeholder="{{__('site.clients_name')}}">
-@if ($errors->has('name'))
-<span class="invalid-feedback btn-danger" role="alert">
-<strong>{{ $errors->first('name') }}</strong>
-</span>
-@endif
-</div>
+                        <div class="box-header">
 
-@for($i = 0 ; $i < 2 ; $i++ )
-<div class="form-group">
-<label>{{__('site.clients_mobile')}}</label>
-<input type="text" name="mobile[]" class="form-control" placeholder="{{__('site.clients_mobile')}}" value="{{$client->mobile[$i] ?? ''}}">
-@if ($errors->has('mobile'))
-<span class="invalid-feedback btn-danger" role="alert">
-<strong>{{ $errors->first('mobile') }}</strong>
-</span>
-@endif
-</div>
-@endfor
+                            <h3 class="box-title" style="margin-bottom: 10px">@lang('site.categories')</h3>
 
-<div class="form-group">
-<label>{{__('site.clients_address')}}</label>
-<input type="text" name="address" class="form-control" value="{{$client->address}}" placeholder="{{__('site.clients_address')}}">
-@if ($errors->has('address'))
-<span class="invalid-feedback btn-danger" role="alert">
-<strong>{{ $errors->first('address') }}</strong>
-</span>
-@endif
-</div>
+                        </div><!-- end of box header -->
 
-<div class="form-group">
-<button class="btn btn-primary" type="submit"><i class="fa fa-plus"></i>{{__('site.update')}}</button>
-</div>
-</form>
+                        <div class="box-body">
 
-</div><!--end of box body-->
+                            @foreach ($categories as $category)
 
+                                <div class="panel-group">
 
-</div><!-- end of box-->
+                                    <div class="panel panel-info">
 
-</section>
+                                        <div class="panel-heading">
+                                            <h4 class="panel-title">
+                                                <a data-toggle="collapse" href="#{{ str_replace(' ', '-', $category->name) }}">{{ $category->name }}</a>
+                                            </h4>
+                                        </div>
 
+                                        <div id="{{ str_replace(' ', '-', $category->name) }}" class="panel-collapse collapse">
 
-</div>
+                                            <div class="panel-body">
 
+                                                @if ($category->product->count() > 0)
 
+                                                    <table class="table table-hover">
+                                                        <tr>
+                                                            <th>@lang('site.name')</th>
+                                                            <th>@lang('site.stock')</th>
+                                                            <th>@lang('site.price')</th>
+                                                            <th>@lang('site.add')</th>
+                                                        </tr>
 
+                                                        @foreach ($category->product as $product)
+                                                            <tr>
+                                                                <td>{{ $product->name }}</td>
+                                                                <td>{{ $product->stock }}</td>
+                                                                <td>{{ $product->sale_price }}</td>
+                                                                <td>
+                                                                    <a href="#"
+                                                                       id="product-{{ $product->id }}"
+                                                                       data-name="{{ $product->name }}"
+                                                                       data-id="{{ $product->id }}"
+                                                                       data-price="{{ $product->sale_price }}"
+                                                                       class="btn {{ in_array($product->id, $order->products->pluck('id')->toArray()) ? 'btn-default disabled' : 'btn-success ' }} add-product-btn btn-sm">
+                                                                        <i class="fa fa-plus"></i>
+                                                                    </a>
+                                                                </td>
+                                                            </tr>
+                                                        @endforeach
 
+                                                    </table><!-- end of table -->
 
+                                                @else
+                                                    <h5>@lang('site.no_records')</h5>
+                                                @endif
 
-@stop
+                                            </div><!-- end of panel body -->
+
+                                        </div><!-- end of panel collapse -->
+
+                                    </div><!-- end of panel primary -->
+
+                                </div><!-- end of panel group -->
+
+                            @endforeach
+
+                        </div><!-- end of box body -->
+
+                    </div><!-- end of box -->
+
+                </div><!-- end of col -->
+
+                <div class="col-md-6">
+
+                    <div class="box box-primary">
+
+                        <div class="box-header">
+
+                            <h3 class="box-title">@lang('site.orders')</h3>
+
+                        </div><!-- end of box header -->
+
+                        <div class="box-body">
+
+                            @include('partials._errors')
+
+                            <form action="{{ route('clients.orders.update', ['order' => $order->id, 'client' => $client->id]) }}" method="post">
+
+                               @csrf
+                               @method('put')
+
+                                <table class="table table-hover">
+                                    <thead>
+                                    <tr>
+                                        <th><input type="hidden"></th>
+                                        <th>@lang('site.product')</th>
+                                        <th>@lang('site.quantity')</th>
+                                        <th>@lang('site.price')</th>
+                                    </tr>
+                                    </thead>
+
+                                    <tbody class="order-list">
+
+                            @foreach ($order->products as $product)
+                            <tr>
+                           <td> 
+                               <input type="hidden" value="{{$product->id}}" name="products_ids[]">
+                            </td>
+                
+                                <td>{{$product->name}}</td>
+                                <td>
+                                    <input type="number" name="quantity[]" min="0" value="{{$product->pivot->quantity}}" data-price="{{number_format($product->sale_price,2)}}" class="form-control input-sm product-quantity">
+                                 </td>
+                                 <td class="product-price" >{{$product->sale_price * $product->pivot->quantity}}</td> 
+                                 <td>
+                                     <button class="btn btn-danger btn-sm remove-product-btn" data-id="{{$product->id}}"><i class="fa fa-trash"></i></button>
+                                </td>
+                                </tr>
+                            @endforeach
+
+                                    </tbody>
+
+                                </table><!-- end of table -->
+
+                                <h4>@lang('site.total') : <span class="total-price">{{ number_format($order->total_price, 2) }}</span></h4>
+
+                                <button class="btn btn-primary btn-block" id="form-btn"><i class="fa fa-edit"></i> @lang('site.edit_order')</button>
+
+                            </form><!-- end of form -->
+
+                        </div><!-- end of box body -->
+
+                    </div><!-- end of box -->
+
+                 
+
+                </div><!-- end of col -->
+
+            </div><!-- end of row -->
+
+        </section><!-- end of content -->
+
+    </div><!-- end of content wrapper -->
+
+@endsection
