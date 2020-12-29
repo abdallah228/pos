@@ -2,6 +2,7 @@
 
 return [
     'no_data_found'=>'للاسف لا يوجد اى سجلات',
+    'logout'=>'تسجيل الخروج',
 
 
     //dashboard
@@ -49,6 +50,7 @@ return [
     'product_description'=>'وصف المنتج',
     'purchase_price'=>'سعرالشراء',
     'sale_price'=>'سعر البيع',
+    'sale_product'=>'سعر المنتج',
     'stock'=>'المخزن',
     'product_image'=>'صوره المنتج',
     'profit_percentage' =>'المكسب',
@@ -56,6 +58,10 @@ return [
     'related_product'=>'المنتجات المرتبطه',
     'quantity'=>'الكميه',
     'total'=>'الاجمالى',
+    'show_products'=>'عرض المنتجات',
+    'created_at'=>'تم اضافته',
+    'print'=>'طباعه',
+    'loading'=>'جار التحضير',
 
 
     //clients
@@ -69,6 +75,8 @@ return [
     //orders
     'orders'=>'الطلبات',
     'add_order'=>'اضف طلب',
+    'show'=>'عرض',
+    'edit_order'=>'تعديل الطلب',
 
 
 

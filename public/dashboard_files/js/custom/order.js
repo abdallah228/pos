@@ -56,7 +56,31 @@ $('body').on('keyup change', '.product-quantity', function() {
 
 });//end of product quantity change
 
-});// end document of ready
+
+$(".order-products").on('click',function(e){
+e.preventDefault();
+$('#loading').css('display','flex');
+
+    let url = $(this).data('url');
+    let method = $(this).data('method');
+
+    $.ajax({
+        url:url,
+        method:method,
+
+        success: function(data){
+            $('#loading').css('display','none');
+            $('#order-product-list').empty();
+            $('#order-product-list').append(data);
+           // console.log(data);
+        }
+
+    });
+});//end order-products
+
+
+});
+
 
 
 //calculate total price
@@ -78,4 +102,5 @@ function calculate_price()
    else{
        $('#add-order-form-btn').addClass('disabled');
    }
+
 }

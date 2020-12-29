@@ -26,5 +26,14 @@ protected $casts = [
      {
         return $this->hasMany('App\Order','client_id');
      }
+
+
+
+
+     /////accessors
+     public function getNameAttribute($value)
+     {
+       return ucfirst($value);
+     }//end of get name attributes
    
 }

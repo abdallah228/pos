@@ -16,13 +16,13 @@ class Order extends Model
     ////////////1======>m
     public function clients()
     {
-        return $this->belongsTo('App\Client','user_id');
+        return $this->belongsTo('App\Client','client_id');
     }
 
     ///m====>m order=====>product
     public function products()
     {
-        return $this->belongsToMany('App\Product','product_order');
+        return $this->belongsToMany('App\Product','product_order')->withPivot('quantity');
     }
     
 }

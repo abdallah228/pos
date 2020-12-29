@@ -28,6 +28,10 @@
             <li><a href="{{route('clients.index')}}"><i class="fa fa-th"></i><span>{{__('site.clients')}}</span></a></li>
             @endif
 
+            @if(auth()->user()->hasPermission('read_orders'))
+            <li><a href="{{route('orders.index')}}"><i class="fa fa-th"></i><span>{{__('site.orders')}}</span></a></li>
+            @endif
+
             
            @if(auth()->user()->hasPermission('read_users'))
                 <li><a href="{{route('users.index')}}"><i class="fa fa-th"></i><span>{{__('site.users')}}</span></a></li>
