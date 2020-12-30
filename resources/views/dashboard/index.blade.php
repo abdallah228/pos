@@ -47,6 +47,20 @@
                     </div>
                 </div>
 
+                {{--orders--}}
+                <div class="col-lg-3 col-xs-6">
+                    <div class="small-box bg-blue">
+                        <div class="inner">
+                            <h3>{{ $orders_count }}</h3>
+
+                            <p>@lang('site.orders')</p>
+                        </div>
+                        <div class="icon">
+                            <i class="ion ion-stats-bars"></i>
+                        </div>
+                        <a href="{{ route('products.index') }}" class="small-box-footer">@lang('site.read') <i class="fa fa-arrow-circle-right"></i></a>
+                    </div>
+                </div>
                 {{--clients--}}
                 <div class="col-lg-3 col-xs-6">
                     <div class="small-box bg-red">
