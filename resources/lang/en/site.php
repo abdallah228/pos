@@ -3,6 +3,8 @@
 return [
     'no_data_found'=>'Sorry No Data Found',
     'logout'=>'Logout',
+    'home_title'=>'POS | Home Page',
+
 
     //dashboard
     'dashboard'=>'Home',
