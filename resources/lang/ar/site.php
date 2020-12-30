@@ -3,6 +3,7 @@
 return [
     'no_data_found'=>'للاسف لا يوجد اى سجلات',
     'logout'=>'تسجيل الخروج',
+    'home_title'=>'POS | Home Page',
 
 
     //dashboard
